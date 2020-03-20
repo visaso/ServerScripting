@@ -13,8 +13,14 @@ const cat_get = (req, res) => {
     res.json(cat);
     //console.log(req.params);
 }
+
+const handle_form = (req, res) => {
+  console.log("Name is : ", req.body.name);
+  console.log("weight is : ", req.body.weight);
+}
    
 module.exports = {
   cat_list_get,
-  cat_get
+  cat_get,
+  handle_form
 };
