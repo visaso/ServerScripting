@@ -11,19 +11,24 @@ const user_list_get = (req, res) => {
 };
 
 const user_get = (req, res) => {
-    let user = users.find(c => c.id == req.params.id)
-    delete user.password;
-    res.json(user);
-    //console.log(req.params);
-}
+  console.log('user id parameter', req.params);
+  const user = users.filter(user => user.id === req.params.id).pop();
+  res.json(user);
+};
 
 const log_form = (req, res) => {
   console.log("Name is : ", req.body.name);
-  console.log("Email is : ", req.body.email);
+  //console.log("Email is : ", req.body.email);
 }
+
+const user_post = (req, res) => {
+  console.log('data from form', req.body);
+  res.send('With this endpoint you can add users');
+};
    
 module.exports = {
   user_list_get,
   user_get,
-  log_form
+  log_form,
+  user_post
 };
